@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Akshay P | Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      display: flex;
+      min-height: 100vh;
+      background: linear-gradient(270deg, #0f2027, #203a43, #2c5364);
+      background-size: 600% 600%;
+      animation: gradientShift 15s ease infinite;
+      color: #fff;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* Animated Gradient */
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 100%;
+      background: rgba(26, 26, 26, 0.85);
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(8px);
+    }
+
+    .menu {
+      display: flex;
+      gap: 20px;
+    }
+
+    .menu a {
+      text-decoration: none;
+      color: #fff;
+      font-size: 18px;
+      transition: 0.3s;
+      cursor: pointer;
+    }
+
+    .menu a:hover {
+      color: #00bfff;
+    }
+
+    /* Main Content */
+    .main {
+      width: 100%;
+      max-width: 800px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 50px 20px;
+    }
+
+    .section {
+      display: none;
+      width: 100%;
+      text-align: center;
+      max-width: 700px;
+    }
+
+    .section.active {
+      display: block;
+    }
+
+    /* Profile Photo */
+    .profile {
+      width: 200px;
+      height: 200px;
+      background: url("img.jpg") no-repeat center/cover;
+      border: 4px solid #00bfff;
+      border-radius: 50%;
+      margin-bottom: 30px;
+    }
+
+    /* Home Section */
+    #home h1 {
+      font-size: 42px;
+      margin-bottom: 20px;
+    }
+
+    #home h1 span {
+      color: #00bfff;
+    }
+
+    #home p {
+      font-size: 18px;
+      line-height: 1.6;
+      color: #ddd;
+    }
+
+    /* Skills Section */
+    #skills h1 {
+      font-size: 36px;
+      margin-bottom: 20px;
+      color: #00bfff;
+    }
+
+    #skills ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    #skills ul li {
+      font-size: 18px;
+      background: rgba(26, 26, 26, 0.85);
+      margin: 12px 0;
+      padding: 15px 20px;
+      border-left: 6px solid #00bfff;
+      border-radius: 8px;
+      transition: transform 0.3s, background 0.3s;
+    }
+
+    #skills ul li:hover {
+      transform: translateX(5px);
+      background: rgba(34, 34, 34, 0.95);
+    }
+
+    /* Resume Section */
+    #resume h1 {
+      font-size: 36px;
+      margin-bottom: 15px;
+      color: #00bfff;
+    }
+
+    #resume p.intro {
+      font-size: 18px;
+      color: #ddd;
+      margin-bottom: 25px;
+      line-height: 1.6;
+    }
+
+    /* Resume Buttons */
+    .resume-btn {
+      display: inline-block;
+      padding: 12px 25px;
+      margin: 10px;
+      font-size: 18px;
+      color: #fff;
+      background: linear-gradient(45deg, #00bfff, #1ecbe1);
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      text-decoration: none;
+      box-shadow: 0 4px 15px rgba(0, 191, 255, 0.4);
+      transition: all 0.3s ease;
+    }
+
+    .resume-btn:hover {
+      background: linear-gradient(45deg, #1ecbe1, #00bfff);
+      transform: scale(1.1);
+      box-shadow: 0 6px 20px rgba(0, 191, 255, 0.6);
+    }
+
+    /* Contact Section */
+    #contact h1 {
+      font-size: 36px;
+      margin-bottom: 20px;
+      color: #00bfff;
+    }
+
+    .contact-email {
+      font-size: 18px;
+      margin: 10px 0 20px;
+      color: #ddd;
+    }
+
+    .contact-social {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      margin-top: 15px;
+    }
+
+    .contact-social a {
+      color: #00bfff;
+      font-size: 22px;
+      transition: 0.3s;
+    }
+
+    .contact-social a:hover {
+      color: #1ecbe1;
+      transform: scale(1.2);
+    }
+
+    /* Hide profile */
+    .hide-photo {
+      display: none !important;
+    }
+
+    @media(max-width: 600px){
+      .profile{
+        width: 150px;
+        height: 150px;
+      }
+      #home h1{
+        font-size: 32px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <div class="menu">
+      <a onclick="showSection('home')">Home</a>
+      <a onclick="showSection('skills')">Skills</a>
+      <a onclick="showSection('resume')">Resume</a>
+      <a onclick="showSection('contact')">Contact</a>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main">
+    <!-- Profile Image -->
+    <div class="profile" id="profile-photo"></div>
+
+    <!-- Home -->
+    <div id="home" class="section active">
+      <h1>Hello, my name is <span>Akshay P</span></h1>
+      <p>Aspiring Computer Science Engineer | Passionate about AI and Web Development. I love creating professional and modern applications using the latest technologies.</p>
+    </div>
+
+    <!-- Skills -->
+    <div id="skills" class="section">
+      <h1>Skills</h1>
+      <ul>
+        <li><strong>Programming Languages:</strong> C, C++, Java, Python</li>
+        <li><strong>Web Development:</strong> HTML, CSS, JavaScript</li>
+        <li><strong>Database Management:</strong> SQL, MySQL, MongoDB</li>
+        <li><strong>Tools & Technologies:</strong> Git, GitHub, VS Code, Jupyter Notebook</li>
+        <li><strong>AI & Machine Learning:</strong> Basics of ML algorithms</li>
+        <li><strong>Soft Skills:</strong> Problem-solving, Teamwork, Adaptability</li>
+      </ul>
+    </div>
+
+    <!-- Resume -->
+    <div id="resume" class="section">
+      <h1>Resume</h1>
+      <p class="intro">
+        To know more about my <strong>Education</strong>, <strong>Projects</strong>, and <strong>Experience</strong>, explore my profile below.
+      </p>
+
+      <a href="resume.pdf" target="_blank" class="resume-btn">👁️ View Resume</a> 
+      <a href="resume.pdf" download class="resume-btn">⬇️ Download Resume</a> 
+    </div>
+
+    <!-- Contact -->
+    <div id="contact" class="section">
+      <h1>Contact Me</h1>
+      <p class="contact-email">Get in touch with me 👉 <a href="mailto:akshaypoojari2021@gmail.com" style="color:#00bfff;">akshaypoojari2021@gmail.com</a></p>
+      <p>Or find me on:</p>
+      <div class="contact-social">
+        <a href="https://www.linkedin.com/in/akshay-p-5a10a8326" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/Akshay-le" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+        <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    function showSection(sectionId) {
+      document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
+      document.getElementById(sectionId).classList.add('active');
+
+      // Hide profile in Skills, Resume, and Contact
+      if(sectionId === "resume" || sectionId === "contact" || sectionId === "skills"){
+        document.getElementById("profile-photo").classList.add("hide-photo");
+      } else {
+        document.getElementById("profile-photo").classList.remove("hide-photo");
+      }
+    }
+  </script>
+
+</body>
+</html>
