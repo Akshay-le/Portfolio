@@ -24,14 +24,14 @@
       align-items: center;
     }
 
-    /* Animated Gradient */
+    
     @keyframes gradientShift {
       0% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
     }
 
-    /* Sidebar */
+    
     .sidebar {
       width: 100%;
       background: rgba(26, 26, 26, 0.85);
@@ -62,7 +62,7 @@
       color: #00bfff;
     }
 
-    /* Main Content */
+   
     .main {
       width: 100%;
       max-width: 800px;
@@ -83,7 +83,7 @@
       display: block;
     }
 
-    /* Profile Photo */
+   
     .profile {
       width: 200px;
       height: 200px;
@@ -93,7 +93,7 @@
       margin-bottom: 30px;
     }
 
-    /* Home Section */
+  
     #home h1 {
       font-size: 42px;
       margin-bottom: 20px;
@@ -109,7 +109,7 @@
       color: #ddd;
     }
 
-    /* Skills Section */
+    
     #skills h1 {
       font-size: 36px;
       margin-bottom: 20px;
@@ -136,7 +136,7 @@
       background: rgba(34, 34, 34, 0.95);
     }
 
-    /* Resume Section */
+    
     #resume h1 {
       font-size: 36px;
       margin-bottom: 15px;
@@ -150,7 +150,7 @@
       line-height: 1.6;
     }
 
-    /* Resume Buttons */
+   
     .resume-btn {
       display: inline-block;
       padding: 12px 25px;
@@ -172,7 +172,7 @@
       box-shadow: 0 6px 20px rgba(0, 191, 255, 0.6);
     }
 
-    /* Contact Section */
+   
     #contact h1 {
       font-size: 36px;
       margin-bottom: 20px;
@@ -203,7 +203,7 @@
       transform: scale(1.2);
     }
 
-    /* Hide profile */
+   
     .hide-photo {
       display: none !important;
     }
@@ -231,18 +231,18 @@
     </div>
   </div>
 
-  <!-- Main Content -->
+  
   <div class="main">
-    <!-- Profile Image -->
+    
     <div class="profile" id="profile-photo"></div>
 
-    <!-- Home -->
+   
     <div id="home" class="section active">
       <h1>Hello, my name is <span>Akshay P</span></h1>
       <p>Aspiring Computer Science Engineer | Passionate about AI and Web Development. I love creating professional and modern applications using the latest technologies.</p>
     </div>
 
-    <!-- Skills -->
+    
     <div id="skills" class="section">
       <h1>Skills</h1>
       <ul>
@@ -255,7 +255,7 @@
       </ul>
     </div>
 
-    <!-- Resume -->
+    
     <div id="resume" class="section">
       <h1>Resume</h1>
       <p class="intro">
@@ -266,7 +266,7 @@
       <a href="resume.pdf" download class="resume-btn">⬇️ Download Resume</a> 
     </div>
 
-    <!-- Contact -->
+   
     <div id="contact" class="section">
       <h1>Contact Me</h1>
       <p class="contact-email">Get in touch with me 👉 <a href="mailto:akshaypoojari2021@gmail.com" style="color:#00bfff;">akshaypoojari2021@gmail.com</a></p>
@@ -286,7 +286,7 @@
       document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
       document.getElementById(sectionId).classList.add('active');
 
-      // Hide profile in Skills, Resume, and Contact
+     
       if(sectionId === "resume" || sectionId === "contact" || sectionId === "skills"){
         document.getElementById("profile-photo").classList.add("hide-photo");
       } else {
@@ -297,3 +297,4 @@
 
 </body>
 </html>
+
